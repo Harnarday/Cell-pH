@@ -1,4 +1,4 @@
-function dx = cell_08(x)
+function dx = cell_(x)
 
 dx = zeros(1,2);
 
@@ -7,8 +7,7 @@ dx = zeros(1,2);
 global pH_ocean
 % pH insie vent, e.g. pH 9
 global pH_vent
-% radius of the cell, e.g. 50 microns (5/10^5)
-global r
+
 
 % Concentrations
 % Ocean
@@ -57,8 +56,18 @@ dx(1) = (phi_H * (H_ocean - H_cell)) + (phi_H * (H_vent - H_cell));
 % current unit is mol/ dm^3
 
 %change in OH
-dx(2) = (phi_OH * (OH_vent - OH_cell)) + ((phi_OH * (OH_ocean - H_cell));
-% We do not consider the efflux of OH into the ocean, as we are assuming
-% that the barrier will not permit diffusion of OH
+dx(2) = phi_OH * (OH_vent - OH_cell);
+
+
+
+
+% dx(1) = (phi_H * (H_ocean - H_cell)) + (phi_H * (H_vent - H_cell));
+% % here we are now including the efflux of H into the vent
+% % current unit is mol/ dm^3
+% 
+% %change in OH
+% dx(2) = (phi_OH * (OH_vent - OH_cell)) + (phi_OH * (OH_ocean - H_cell));
+% % We do not consider the efflux of OH into the ocean, as we are assuming
+% % that the barrier will not permit diffusion of OH
 
 end

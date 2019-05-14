@@ -1,3 +1,7 @@
+function x = caller(x,y)
+% Caller function for running cell_.m with different pH values
+% x is pH of ocean
+% y is pH of vent
 % Settings
 tmax = 2000;
 % time = 0 :0.1:20;
@@ -11,12 +15,10 @@ global pH_vent
 global r
 
 % Initial conditions
-pH_ocean             = 5;       % pH of ocean
-pH_vent              = 9;       % pH inside vent
 r                    = 5*10^-5;  %in decimetres, test where radius = 5 microns
 
-% tmax = 100;
-% dt = 10e-6;
+for j = 1:length(x)
+    
 
 H_cell_ini              = 10^-(pH_vent);
 OH_cell_ini             = 10^-(14-pH_vent);
@@ -28,19 +30,21 @@ x(1,:) = [H_cell_ini, OH_cell_ini];
 
 dx_vector = zeros(tmax,2);
 
-for i =1:tmax
-    
-    dx_vector(i,:) = cell_-(x(i,:));
-    
-    x(i+1,:)= x(i,:) + dx_vector(i,:);
-    
-    x(i+1,:)= eqFunc(x(i+1,:),r);
-    
+    for i =1:tmax
+
+        dx_vector(i,:) = cell_-(x(i,:));
+
+        x(i+1,:)= x(i,:) + dx_vector(i,:);
+
+        x(i+1,:)= eqFunc(x(i+1,:),r);
+
+    end
+
 end
 
 % figure;
 % subplot(2,1,1);
-plot(-log10(x));
+% plot(-log10(x));
 % hold on
 % ylim([6.999 7.0001]);
 % xlim([0 tmax]);
@@ -50,3 +54,5 @@ plot(-log10(x));
 % title('ocean = pH 5; vent = pH 7');
 % legend('pH', 'pOH', 'location', 'northeast');
 % hold off
+
+end
