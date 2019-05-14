@@ -1,4 +1,4 @@
-function dx = cell_08(x)
+function dx = cell_07(x)
 
 dx = zeros(1,2);
 
@@ -13,9 +13,8 @@ global r
 % Concentrations
 % Ocean
 H_ocean               = 10^-(pH_ocean);
-OH_ocean                = 10^(14-pH_ocean);
 OH_vent               = 10^-(14-pH_vent);
-H_vent                = 10^-(pH_vent);
+% H_vent                = 10^-(pH_vent);
 
 
 % Constants
@@ -48,16 +47,17 @@ OH_cell = x(2);
 
 % Rates of reaction, constants for now
 phi_H           = 1*10^-2;
+% psi_H           = 1*10^-3;      % constant for H flux on the vent side
 phi_OH          = 1*10^-2;
 
 
 % Change in H inside the cell
-dx(1) = (phi_H * (H_ocean - H_cell)) + (phi_H * (H_vent - H_cell));
+dx(1) = phi_H * (H_ocean - H_cell); % + (psi_H * (H_vent - H_cell));
 % here we are now including the efflux of H into the vent
 % current unit is mol/ dm^3
 
 %change in OH
-dx(2) = (phi_OH * (OH_vent - OH_cell)) + ((phi_OH * (OH_ocean - H_cell));
+dx(2) = phi_OH * (OH_vent - OH_cell);
 % We do not consider the efflux of OH into the ocean, as we are assuming
 % that the barrier will not permit diffusion of OH
 

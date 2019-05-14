@@ -30,7 +30,7 @@ dx_vector = zeros(tmax,2);
 
 for i =1:tmax
     
-    dx_vector(i,:) = cell(x(i,:));
+    dx_vector(i,:) = cell_07(x(i,:));
     
     x(i+1,:)= x(i,:) + dx_vector(i,:);
     
@@ -40,7 +40,7 @@ end
 
 % figure;
 % subplot(2,1,1);
-plot(-log10(x));
+% plot(-log10(x));
 % hold on
 % ylim([6.999 7.0001]);
 % xlim([0 tmax]);
