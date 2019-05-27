@@ -7,3 +7,4 @@ y = [7 9 11 10 12];
 righto = caller(x,y);
 
 plot(-log10((righto)))
+xlim([0 2000]);
