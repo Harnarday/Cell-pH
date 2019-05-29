@@ -34,9 +34,9 @@ Vent_pH = y';
 % no_OH_eq_flux = round(-log10(final_pH))';
 no_OH_slow_OH = round(-log10(final_pH))';
 
-T = table(Ocean_pH, Vent_pH, all_flux_eq_flux, all_flux_slow_OH, no_OH_eq_flux, no_OH_slow_OH);
+T = table(Ocean_pH, Vent_pH, all_flux_eq_flux, all_flux_slow_OH;
 
-writetable(T,'20190529-results.txt');
+writetable(T,'testtable.txt');
 
 import mlreportgen.report.*
 import mlreportgen.dom.*
