@@ -1,4 +1,4 @@
-function dx = cell_(x)
+function dx = cell_allflux(x)
 
 dx = zeros(1,2);
 
@@ -58,9 +58,7 @@ dx(1) = (phi_H * (H_ocean - H_cell)) + (phi_H * (H_vent - H_cell));
 % current unit is mol/ dm^3
 
 %change in OH
-dx(2) = (phi_OH * (OH_vent - OH_cell));
-
-
+dx(2) = (phi_OH * (OH_vent - OH_cell)) + (phi_OH * (OH_ocean - OH_cell));
 
 
 % dx(1) = (phi_H * (H_ocean - H_cell)) + (phi_H * (H_vent - H_cell));
