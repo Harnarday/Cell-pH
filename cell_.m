@@ -12,7 +12,7 @@ global pH_vent
 % Concentrations
 % Ocean
 H_ocean               = 10^-(pH_ocean);
-OH_ocean                = 10^(14-pH_ocean);
+OH_ocean              = 10^-(14-pH_ocean);
 OH_vent               = 10^-(14-pH_vent);
 H_vent                = 10^-(pH_vent);
 
