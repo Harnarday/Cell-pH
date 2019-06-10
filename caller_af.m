@@ -5,7 +5,7 @@ function allvals = caller_af(x,y)
 % y is pH of vent
 % Settings
 tmax = 2000;
-% time = 0 :0.1:20;
+% time = 0 :0.1:20;     ???
 
 % Parameters
 % pH of ocean, e.g. pH 5
